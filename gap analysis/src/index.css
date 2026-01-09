@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+* { 
+  font-family: 'IBM Plex Sans', sans-serif; 
+}
+
+body { 
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); 
+  min-height: 100vh; 
+}
+
+.mono { 
+  font-family: 'IBM Plex Mono', monospace; 
+}
+
+.glass { 
+  background: rgba(255,255,255,0.03); 
+  backdrop-filter: blur(10px); 
+  border: 1px solid rgba(255,255,255,0.08); 
+}
+
+.glass-dark { 
+  background: rgba(0,0,0,0.3); 
+  backdrop-filter: blur(10px); 
+  border: 1px solid rgba(255,255,255,0.05); 
+}
+
+.glow-red { 
+  box-shadow: 0 0 20px rgba(239,68,68,0.3); 
+}
+
+.glow-yellow { 
+  box-shadow: 0 0 20px rgba(234,179,8,0.3); 
+}
+
+.glow-green { 
+  box-shadow: 0 0 20px rgba(34,197,94,0.3); 
+}
+
+.glow-blue { 
+  box-shadow: 0 0 20px rgba(59,130,246,0.3); 
+}
+
+.progress-bar { 
+  background: rgba(255,255,255,0.1); 
+  overflow: hidden; 
+}
+
+.progress-fill { 
+  transition: width 0.8s ease-out; 
+}
+
+.layer-card { 
+  transition: all 0.3s ease; 
+}
+
+.layer-card:hover { 
+  transform: translateY(-2px); 
+}
+
+.expandable-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.4s ease-out; 
+}
+
+.expandable-content.expanded { 
+  max-height: 2000px; 
+}
+
+.tab-active { 
+  border-bottom: 2px solid #3b82f6; 
+  color: #3b82f6; 
+}
+
+.score-ring { 
+  background: conic-gradient(from 0deg, #ef4444 0%, #ef4444 25%, rgba(255,255,255,0.1) 25%); 
+}
+
+@keyframes pulse-glow { 
+  0%, 100% { 
+    opacity: 1; 
+  } 
+  50% { 
+    opacity: 0.6; 
+  } 
+}
+
+.pulse-glow { 
+  animation: pulse-glow 2s ease-in-out infinite; 
+}
