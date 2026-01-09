@@ -1,35 +1,7 @@
 import React, { useState } from 'react';
 
-// Type definitions
-type BlockFormat = 'prose' | 'bullets' | 'table' | 'structured' | 'safety';
-
-interface DescriptionBlock {
-  id: string;
-  title: string;
-  icon: string;
-  format: BlockFormat;
-  content: string | string[] | Array<{ spec: string; value: string }> | {
-    sizing?: string;
-    setup?: string;
-    tuning?: string;
-    maintenance?: string;
-    break_in?: string;
-    suitableFor?: string[];
-    notSuitableFor?: string[];
-    isNot?: string;
-    physicalRequirements?: string;
-    warnings?: string[];
-  };
-  extras?: {
-    features?: string[];
-    certifications?: string[];
-  };
-}
-
-type ViewType = 'after' | 'compare' | 'data' | 'mcl';
-
 const DuijvesteinSkiPDPComplete = () => {
-  const [view, setView] = useState<ViewType>('after');
+  const [view, setView] = useState('after'); // 'after', 'compare', 'data', 'mcl'
 
   // ===========================================
   // PRODUCT DATA (Blueprint Structured Data)
@@ -368,7 +340,7 @@ const DuijvesteinSkiPDPComplete = () => {
   // ===========================================
   // 7-BLOCK DESCRIPTION CONTENT
   // ===========================================
-  const descriptionBlocks: DescriptionBlock[] = [
+  const descriptionBlocks = [
     {
       id: 'identity_statement',
       title: 'Product Identity',
@@ -480,15 +452,15 @@ const DuijvesteinSkiPDPComplete = () => {
   // ===========================================
   // RENDER HELPERS
   // ===========================================
-  const renderBlockContent = (block: DescriptionBlock): React.ReactElement | null => {
+  const renderBlockContent = (block) => {
     switch (block.format) {
       case 'prose':
-        return <p className="text-gray-700 leading-relaxed">{block.content as string}</p>;
+        return <p className="text-gray-700 leading-relaxed">{block.content}</p>;
       
       case 'bullets':
         return (
           <ul className="space-y-2">
-            {(block.content as string[]).map((item: string, i: number) => (
+            {block.content.map((item, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="text-sky-500 mt-1">•</span>
                 <span className="text-gray-700">{item}</span>
@@ -502,7 +474,7 @@ const DuijvesteinSkiPDPComplete = () => {
           <div>
             <table className="w-full text-sm mb-3">
               <tbody>
-                {(block.content as Array<{ spec: string; value: string }>).map((row: { spec: string; value: string }, i: number) => (
+                {block.content.map((row, i) => (
                   <tr key={i} className="border-b border-gray-100">
                     <td className="py-2 text-gray-500 w-40">{row.spec}</td>
                     <td className="py-2 font-medium text-gray-800">{row.value}</td>
@@ -510,23 +482,21 @@ const DuijvesteinSkiPDPComplete = () => {
                 ))}
               </tbody>
             </table>
-            {block.extras && (
-              <div className="flex flex-wrap gap-2 mt-3">
-                {block.extras.features?.map((item: string, i: number) => (
-                  <span key={i} className="px-2 py-1 bg-sky-50 text-sky-700 text-xs rounded-full">{item}</span>
-                ))}
-                {block.extras.certifications?.map((item: string, i: number) => (
-                  <span key={i} className="px-2 py-1 bg-amber-50 text-amber-700 text-xs rounded-full">✓ {item}</span>
-                ))}
-              </div>
-            )}
+            <div className="flex flex-wrap gap-2 mt-3">
+              {block.extras.features.map((item, i) => (
+                <span key={i} className="px-2 py-1 bg-sky-50 text-sky-700 text-xs rounded-full">{item}</span>
+              ))}
+              {block.extras.certifications.map((item, i) => (
+                <span key={i} className="px-2 py-1 bg-amber-50 text-amber-700 text-xs rounded-full">✓ {item}</span>
+              ))}
+            </div>
           </div>
         );
       
       case 'structured':
         return (
           <div className="space-y-3 text-sm">
-            {Object.entries(block.content as Record<string, string>).map(([key, value]) => (
+            {Object.entries(block.content).map(([key, value]) => (
               <div key={key} className="flex gap-4">
                 <span className="text-gray-500 w-24 flex-shrink-0 capitalize">{key}:</span>
                 <span className="text-gray-700">{value}</span>
@@ -536,19 +506,12 @@ const DuijvesteinSkiPDPComplete = () => {
         );
       
       case 'safety':
-        const safetyContent = block.content as {
-          suitableFor?: string[];
-          notSuitableFor?: string[];
-          isNot?: string;
-          physicalRequirements?: string;
-          warnings?: string[];
-        };
         return (
           <div className="space-y-4">
             <div>
               <div className="text-sm font-medium text-green-700 mb-1">✓ Suitable For:</div>
               <div className="flex flex-wrap gap-1">
-                {safetyContent.suitableFor?.map((item: string, i: number) => (
+                {block.content.suitableFor.map((item, i) => (
                   <span key={i} className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded">{item}</span>
                 ))}
               </div>
@@ -556,23 +519,23 @@ const DuijvesteinSkiPDPComplete = () => {
             <div>
               <div className="text-sm font-medium text-red-700 mb-1">✗ Not Suitable For:</div>
               <div className="flex flex-wrap gap-1">
-                {safetyContent.notSuitableFor?.map((item: string, i: number) => (
+                {block.content.notSuitableFor.map((item, i) => (
                   <span key={i} className="px-2 py-1 bg-red-50 text-red-700 text-xs rounded">{item}</span>
                 ))}
               </div>
             </div>
             <div className="p-3 bg-gray-100 rounded-lg">
               <div className="text-sm font-medium text-gray-700 mb-1">⚠️ This product IS NOT:</div>
-              <p className="text-sm text-gray-600">{safetyContent.isNot}</p>
+              <p className="text-sm text-gray-600">{block.content.isNot}</p>
             </div>
             <div className="p-3 bg-amber-50 rounded-lg border border-amber-200">
               <div className="text-sm font-medium text-amber-700 mb-1">💪 Physical Requirements:</div>
-              <p className="text-sm text-amber-800">{safetyContent.physicalRequirements}</p>
+              <p className="text-sm text-amber-800">{block.content.physicalRequirements}</p>
             </div>
             <div>
               <div className="text-sm font-medium text-gray-700 mb-1">Critical Warnings:</div>
               <ul className="text-sm text-gray-600 space-y-1">
-                {safetyContent.warnings?.map((w: string, i: number) => (
+                {block.content.warnings.map((w, i) => (
                   <li key={i}>• {w}</li>
                 ))}
               </ul>
@@ -585,7 +548,7 @@ const DuijvesteinSkiPDPComplete = () => {
     }
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case 'excellent': case 'verified': case 'pass': return 'text-green-600 bg-green-50';
       case 'good': case 'optimized': return 'text-emerald-600 bg-emerald-50';
@@ -595,7 +558,7 @@ const DuijvesteinSkiPDPComplete = () => {
     }
   };
 
-  const getStatusIcon = (status: string) => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case 'excellent': case 'verified': case 'pass': case 'optimized': return '✓';
       case 'good': return '✓';
