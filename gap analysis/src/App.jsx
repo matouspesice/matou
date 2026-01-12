@@ -691,7 +691,175 @@ function App() {
         {activeTab === 'research' && (
           <div id="content-research" className="tab-content">
             <div className="grid gap-4">
-              {/* Research content */}
+              
+              {/* Pain Points Not Addressed */}
+              <div className="glass rounded-xl p-6">
+                <h3 className="text-lg font-semibold mb-4">Customer Pain Points — Not Addressed by Current PDP</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 text-right">
+                      <span className="text-2xl font-bold text-red-400">0.93</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="progress-bar h-3 rounded-full">
+                        <div className="progress-fill h-full bg-red-500 rounded-full" style={{ width: '93%' }}></div>
+                      </div>
+                    </div>
+                    <div className="flex-1 text-sm">
+                      <span className="text-gray-300">"Short skis less maneuverable in tight terrain"</span>
+                      <span className="text-yellow-400 ml-2">⚠️ Only 175cm shown</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 text-right">
+                      <span className="text-2xl font-bold text-red-400">0.83</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="progress-bar h-3 rounded-full">
+                        <div className="progress-fill h-full bg-red-500 rounded-full" style={{ width: '83%' }}></div>
+                      </div>
+                    </div>
+                    <div className="flex-1 text-sm">
+                      <span className="text-gray-300">"Hard to choose correct ski type"</span>
+                      <span className="text-red-400 ml-2">❌ No guidance</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 text-right">
+                      <span className="text-2xl font-bold text-red-400">0.79</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="progress-bar h-3 rounded-full">
+                        <div className="progress-fill h-full bg-red-500 rounded-full" style={{ width: '79%' }}></div>
+                      </div>
+                    </div>
+                    <div className="flex-1 text-sm">
+                      <span className="text-gray-300">"Weight mismatch causes poor handling"</span>
+                      <span className="text-red-400 ml-2">❌ No weight recommendation</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 text-right">
+                      <span className="text-2xl font-bold text-yellow-400">0.61</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="progress-bar h-3 rounded-full">
+                        <div className="progress-fill h-full bg-yellow-500 rounded-full" style={{ width: '61%' }}></div>
+                      </div>
+                    </div>
+                    <div className="flex-1 text-sm">
+                      <span className="text-gray-300">"Confusing product specification jargon"</span>
+                      <span className="text-red-400 ml-2">❌ Uses jargon without explanation</span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 text-right">
+                      <span className="text-2xl font-bold text-yellow-400">0.52</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="progress-bar h-3 rounded-full">
+                        <div className="progress-fill h-full bg-yellow-500 rounded-full" style={{ width: '52%' }}></div>
+                      </div>
+                    </div>
+                    <div className="flex-1 text-sm">
+                      <span className="text-gray-300">"Unclear stiffness guidance for user weight"</span>
+                      <span className="text-red-400 ml-2">❌ No weight guidance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Customer Profiles Match */}
+              <div className="glass rounded-xl p-6">
+                <h3 className="text-lg font-semibold mb-4">Target Customer Profile Match</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 bg-yellow-500/10 rounded-lg border border-yellow-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold">Precision Carving & Race Pursuitors</span>
+                      <span className="text-xs text-gray-400">6-12% of buyers</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-yellow-400">⚠️</span>
+                      <span className="text-sm text-gray-300">Partial Match</span>
+                    </div>
+                    <p className="text-xs text-gray-400">Missing technical depth they expect (waist width, turn radius, construction details)</p>
+                  </div>
+                  <div className="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold">Safety-Focused Families</span>
+                      <span className="text-xs text-gray-400">18-24% of buyers</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-400">❌</span>
+                      <span className="text-sm text-gray-300">Poor Match</span>
+                    </div>
+                    <p className="text-xs text-gray-400">No safety guidance — only "not for beginners" without context</p>
+                  </div>
+                  <div className="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold">Guidance-Dependent Buyers</span>
+                      <span className="text-xs text-gray-400">12-18% of buyers</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-400">❌</span>
+                      <span className="text-sm text-gray-300">Poor Match</span>
+                    </div>
+                    <p className="text-xs text-gray-400">No clear guidance — they need "Best For" situations</p>
+                  </div>
+                  <div className="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold">Data-Driven Testers</span>
+                      <span className="text-xs text-gray-400">4-9% of buyers</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-red-400">❌</span>
+                      <span className="text-sm text-gray-300">Poor Match</span>
+                    </div>
+                    <p className="text-xs text-gray-400">No metrics/data — they want specifications and measurements</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Unmet Customer Goals */}
+              <div className="glass rounded-xl p-6">
+                <h3 className="text-lg font-semibold mb-4">Customer Goals — Current PDP Support</h3>
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="text-gray-400 text-left border-b border-gray-700">
+                      <th className="pb-3">Customer Goal</th>
+                      <th className="pb-3 text-center">Priority</th>
+                      <th className="pb-3">PDP Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-t border-gray-700/30">
+                      <td className="py-3">"Master turn initiation and tip/shovel handling"</td>
+                      <td className="py-3 text-center"><span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400">10</span></td>
+                      <td className="py-3"><span className="text-yellow-400">⚠️ Mentioned but not explained</span></td>
+                    </tr>
+                    <tr className="border-t border-gray-700/30">
+                      <td className="py-3">"Choose skis with appropriate stiffness/flex for weight"</td>
+                      <td className="py-3 text-center"><span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400">9</span></td>
+                      <td className="py-3"><span className="text-red-400">❌ No guidance</span></td>
+                    </tr>
+                    <tr className="border-t border-gray-700/30">
+                      <td className="py-3">"Validate purchase with testing"</td>
+                      <td className="py-3 text-center"><span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400">9</span></td>
+                      <td className="py-3"><span className="text-green-400">✓ Demo available</span></td>
+                    </tr>
+                    <tr className="border-t border-gray-700/30">
+                      <td className="py-3">"Obtain predictable, strong edge control"</td>
+                      <td className="py-3 text-center"><span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400">8</span></td>
+                      <td className="py-3"><span className="text-green-400">✓ Mentioned</span></td>
+                    </tr>
+                    <tr className="border-t border-gray-700/30">
+                      <td className="py-3">"Get clear, expert-guided setup advice"</td>
+                      <td className="py-3 text-center"><span className="px-2 py-1 rounded bg-blue-500/20 text-blue-400">8</span></td>
+                      <td className="py-3"><span className="text-red-400">❌ Missing</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         )}
@@ -699,7 +867,96 @@ function App() {
         {activeTab === 'actions' && (
           <div id="content-actions" className="tab-content">
             <div className="grid gap-4">
-              {/* Recommendations content */}
+              
+              {/* P0: Immediate */}
+              <div className="glass rounded-xl p-6 border-l-4 border-red-500">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-bold">P0</span>
+                  <h3 className="text-lg font-semibold">Immediate Actions — Week 1-2</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-red-400 mb-2">Add Safety & Boundaries Block</h4>
+                    <p className="text-sm text-gray-400 mb-2">Enables responsible LLM recommendations</p>
+                    <div className="flex gap-2">
+                      <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">High Impact</span>
+                      <span className="px-2 py-1 rounded bg-yellow-500/20 text-yellow-300 text-xs">Medium Effort</span>
+                    </div>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-red-400 mb-2">Add Missing L3 Parameters</h4>
+                    <p className="text-sm text-gray-400 mb-2">Waist width, turn radius, sidecut — enables filtering</p>
+                    <div className="flex gap-2">
+                      <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">High Impact</span>
+                      <span className="px-2 py-1 rounded bg-green-500/20 text-green-300 text-xs">Low Effort</span>
+                    </div>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-red-400 mb-2">Create "Best For" Block</h4>
+                    <p className="text-sm text-gray-400 mb-2">5-6 specific user situations for intent matching</p>
+                    <div className="flex gap-2">
+                      <span className="px-2 py-1 rounded bg-red-500/20 text-red-300 text-xs">High Impact</span>
+                      <span className="px-2 py-1 rounded bg-yellow-500/20 text-yellow-300 text-xs">Medium Effort</span>
+                    </div>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-red-400 mb-2">Convert Multi-Value Fields</h4>
+                    <p className="text-sm text-gray-400 mb-2">"Advanced, Expert" → single enum for reliable filtering</p>
+                    <div className="flex gap-2">
+                      <span className="px-2 py-1 rounded bg-yellow-500/20 text-yellow-300 text-xs">Medium Impact</span>
+                      <span className="px-2 py-1 rounded bg-green-500/20 text-green-300 text-xs">Low Effort</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* P1: Short-term */}
+              <div className="glass rounded-xl p-6 border-l-4 border-yellow-500">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs font-bold">P1</span>
+                  <h3 className="text-lg font-semibold">Short-term Actions — Week 3-4</h3>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-yellow-400 mb-2">Add L2 Goals & Intent</h4>
+                    <p className="text-sm text-gray-400">Primary use case, problem solved, user goals</p>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-yellow-400 mb-2">Create Mechanism Block</h4>
+                    <p className="text-sm text-gray-400">Consolidated technical explanation for trust</p>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-yellow-400 mb-2">Create "What's Inside" Table</h4>
+                    <p className="text-sm text-gray-400">Specifications with consumer context</p>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-yellow-400 mb-2">Create Differentiators</h4>
+                    <p className="text-sm text-gray-400">"X instead of Y" format for competitive positioning</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* P2: Medium-term */}
+              <div className="glass rounded-xl p-6 border-l-4 border-blue-500">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold">P2</span>
+                  <h3 className="text-lg font-semibold">Medium-term Actions — Month 2</h3>
+                </div>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-blue-400 mb-2">Full Blueprint Implementation</h4>
+                    <p className="text-sm text-gray-400">Across entire ski catalog</p>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-blue-400 mb-2">Standardize 7 Blocks</h4>
+                    <p className="text-sm text-gray-400">All Description blocks across catalog</p>
+                  </div>
+                  <div className="p-4 glass-dark rounded-lg">
+                    <h4 className="font-semibold text-blue-400 mb-2">Add MCL Data</h4>
+                    <p className="text-sm text-gray-400">Merchant Consideration Layer for agent trust</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -707,7 +964,113 @@ function App() {
         {activeTab === 'transform' && (
           <div id="content-transform" className="tab-content">
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Before/After content */}
+              
+              {/* Before */}
+              <div className="glass rounded-xl p-6 border-l-4 border-red-500">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-red-400">Before</span>
+                  <span className="text-xs text-gray-400">Current State</span>
+                </h3>
+                <div className="space-y-4 text-sm">
+                  <div className="p-4 bg-gray-800/50 rounded-lg mono text-xs">
+                    <div className="text-white font-bold mb-2">Stockli Laser GS €1,599.00</div>
+                    <div className="text-gray-400 mb-3">
+                      <div className="text-green-400">✓ Excellent stability at high speed</div>
+                      <div className="text-green-400">✓ Playful agility</div>
+                      <div className="text-green-400">✓ Maximum precision in turns</div>
+                      <div className="text-green-400">✓ Smooth from start to finish</div>
+                      <div className="text-red-400">✗ Not suitable for beginner skiers</div>
+                    </div>
+                    <div className="border-t border-gray-700 pt-3 mt-3">
+                      <div>Type: Piste Performance, Race, Slalom</div>
+                      <div>Experience: Advanced, Expert</div>
+                      <div>Shape: Camber</div>
+                      <div>Binding: Salomon SRT 12 GW</div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-red-400">
+                      <span>❌</span> No waist width, turn radius, or sidecut
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400">
+                      <span>❌</span> No weight recommendation
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400">
+                      <span>❌</span> Marketing claims, not facts
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400">
+                      <span>❌</span> No "Best For" situations
+                    </div>
+                    <div className="flex items-center gap-2 text-red-400">
+                      <span>❌</span> Minimal safety information
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* After */}
+              <div className="glass rounded-xl p-6 border-l-4 border-green-500">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <span className="text-green-400">After</span>
+                  <span className="text-xs text-gray-400">Optimized State</span>
+                </h3>
+                <div className="space-y-4 text-sm">
+                  <div className="p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-xs text-blue-400 mb-2">BLUEPRINT (Structured)</div>
+                    <div className="mono text-xs space-y-1 text-gray-300">
+                      <div><span className="text-purple-400">waist_width_mm:</span> 68</div>
+                      <div><span className="text-purple-400">turn_radius_m:</span> 17</div>
+                      <div><span className="text-purple-400">sidecut_mm:</span> "122-68-104"</div>
+                      <div><span className="text-purple-400">weight_range_kg:</span> "70-95"</div>
+                      <div><span className="text-purple-400">skill_level:</span> závodní</div>
+                      <div><span className="text-purple-400">primary_use_case:</span> race-gs-training</div>
+                    </div>
+                  </div>
+                  <div className="p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-xs text-green-400 mb-2">BEST FOR (Intent Matching)</div>
+                    <ul className="text-xs text-gray-300 space-y-1">
+                      <li>• For club racers training GS technique</li>
+                      <li>• For skiers 70-95 kg on hardpack</li>
+                      <li>• For ski instructors demonstrating turns</li>
+                      <li>• NOT for powder, freeride, beginners</li>
+                    </ul>
+                  </div>
+                  <div className="p-4 bg-gray-800/50 rounded-lg">
+                    <div className="text-xs text-yellow-400 mb-2">SAFETY BLOCK (Responsible AI)</div>
+                    <ul className="text-xs text-gray-300 space-y-1">
+                      <li>✓ Suitable: Expert carvers, 70-95 kg</li>
+                      <li>✗ NOT for: Beginners, under 65 kg</li>
+                      <li>⚠️ IS NOT: All-mountain, learning ski</li>
+                      <li>⚡ Warning: Pro binding setup required</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Business Impact */}
+            <div className="glass rounded-xl p-6 mt-6">
+              <h3 className="text-lg font-semibold mb-4">Business Impact</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="p-4 bg-red-500/10 rounded-lg border border-red-500/30">
+                  <h4 className="font-semibold text-red-400 mb-3">❌ Without Optimization</h4>
+                  <ul className="space-y-2 text-sm text-gray-300">
+                    <li>• Invisible to queries like "GS ski for club racing under €2000"</li>
+                    <li>• LLMs cannot verify claims or filter appropriately</li>
+                    <li>• AI platforms skip due to missing safety signals</li>
+                    <li>• Competitive disadvantage vs. structured-data retailers</li>
+                  </ul>
+                </div>
+                <div className="p-4 bg-green-500/10 rounded-lg border border-green-500/30">
+                  <h4 className="font-semibold text-green-400 mb-3">✓ With Optimization</h4>
+                  <ul className="space-y-2 text-sm text-gray-300">
+                    <li>• Full discoverability for intent-matched queries</li>
+                    <li>• LLMs can confidently recommend with explanations</li>
+                    <li>• Competitive advantage in AI shopping landscape</li>
+                    <li>• Higher conversion from qualified traffic</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         )}
